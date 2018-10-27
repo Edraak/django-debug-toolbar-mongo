@@ -2,7 +2,12 @@ import functools
 import time
 import inspect
 import os
-import SocketServer
+try:
+    # Python 2
+    import SocketServer
+except ImportError:
+    # Python 3
+    import socketserver
 
 import django
 from django.conf import settings
