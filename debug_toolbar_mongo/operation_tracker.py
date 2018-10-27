@@ -62,7 +62,6 @@ def _insert(collection_self, doc_or_docs, manipulate=True,
         collection_self,
         doc_or_docs,
         manipulate=manipulate,
-        safe=safe,
         check_keys=check_keys,
         **kwargs
     )
@@ -87,7 +86,6 @@ def _update(collection_self, spec, document, upsert=False,
         spec,
         document,
         upsert=upsert,
-        safe=safe,
         multi=multi,
         **kwargs
     )
@@ -98,8 +96,8 @@ def _update(collection_self, spec, document, upsert=False,
         'document': document,
         'upsert': upsert,
         'multi': multi,
-        'spec': spec,
         'safe': safe,
+        'spec': spec,
         'time': total_time,
         'stack_trace': _get_stacktrace(),
     })
@@ -112,7 +110,6 @@ def _remove(collection_self, spec_or_id, safe=False, **kwargs):
     result = _original_methods['remove'](
         collection_self,
         spec_or_id,
-        safe=safe,
         **kwargs
     )
     total_time = (time.time() - start_time) * 1000
