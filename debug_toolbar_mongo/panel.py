@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 
 from debug_toolbar.panels import DebugPanel
 
-import operation_tracker
+from . import operation_tracker
 
 _NAV_SUBTITLE_TPL = u'''
 {% for o, n, t in operations %}
@@ -15,6 +15,7 @@ _NAV_SUBTITLE_TPL = u'''
     {% endif %}
 {% endfor %}
 '''
+
 
 class MongoDebugPanel(DebugPanel):
     """Panel that shows information about MongoDB operations.
